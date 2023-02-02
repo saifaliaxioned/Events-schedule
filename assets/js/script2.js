@@ -98,7 +98,7 @@ const showData = (data) => {
                 <span class="schedule-month">${new Date(objList.eventDate).toLocaleString('default', { month: 'short' })}</span>
               </div>
               <div class="event-details">
-                <h4><span class="event-day">${eDay}</span> <span class="start-event">${sH >= 12 ? sH - 12 : sH}:${sM}${sH >= 12 ? 'PM' : 'AM'}</span>-<span class="end-event">${eH >= 12 ? eH - 12 : eH}:${eM}${eH >= 12 ? 'PM' : 'AM'}</span></h4>
+                <h4><span class="event-day">${eDay}</span> <span class="start-event">${sH==12 ? 12 : sH >= 12 ? sH - 12 : sH}:${sM}${sH >= 12 ? 'PM' : 'AM'}</span>-<span class="end-event">${eH==12 ? 12 : eH >= 12 ? eH - 12 : eH}:${eM}${eH >= 12 ? 'PM' : 'AM'}</span></h4>
                 <p class="event-location">${objList.eLocation}</p>
                 <h5 class="event-name">${objList.eName}</h5>
               </div>
