@@ -5,7 +5,7 @@ const form = document.querySelector('.event-form'),
   endTime = document.querySelector('.end-time'),
   eLocation = document.querySelector('.location'),
   eName = document.querySelector('.name'),
-  stringPattern = /^[a-zA-Z0-9]{3,}\s+$/,
+  stringPattern = /^[a-zA-Z0-9][a-zA-Z0-9\s]+[a-zA-Z0-9]$/,
   eventSection = document.querySelector('.events-section'),
   eventItems = document.querySelector('.event-items'),
   eventMessage = document.querySelector('.event-message'),
@@ -33,7 +33,11 @@ if (form) {
       if (pattern.test(input.value)) {
         input.nextElementSibling.classList.remove("show-error");
         return true;
-      } else {
+      } else if (input.value >= new Date()) {
+        input.nextElementSibling.classList.remove("show-error");
+        return true;
+      }
+       else {
         input.nextElementSibling.classList.add("show-error");
         input.nextElementSibling.innerText = err;
         return false;
@@ -52,10 +56,10 @@ if (form) {
       location.href = 'events.html';
       form.reset();
     } else {
-      validateInput(eventDate);
-      validateInput(startTime);
-      validateInput(endTime);
-      validateInput(eLocation);
+      validateInput(eventDate,'','*Please select event date');
+      validateInput(startTime,'', '*Please select event start time');
+      validateInput(endTime,'','*Please select event end time');
+      validateInput(eLocation,'','*Please select event location');
       validateInput(eName, stringPattern, '*Please enter minimum three characters');
     }
   });
