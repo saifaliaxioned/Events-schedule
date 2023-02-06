@@ -83,11 +83,8 @@ const uiData = (data) => {
       
       li.innerHTML = `<h3><span class="event-month">${eMonth}</span> <span class="event-year">${eYear}</span></h3>`;
       addLi(objList, ul);
-      if (li !== undefined) {
         li.appendChild(ul);
         eventItems.appendChild(li);
-      }
-
     }
   })
 }
